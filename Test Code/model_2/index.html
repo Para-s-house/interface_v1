@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Animada - Impacto Visual</title>
+    <style>
+        /* 1. RESET & VARIABLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Black', Impact, sans-serif;
+        }
+
+        :root {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --accent-color: #ff003c; /* Rojo/Fucsia Neón */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* 2. EFECTO DE APARICIÓN (ANIMACIÓN) */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 3. SECCIONES DE PANTALLA COMPLETA */
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Sección de Inicio */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=1000') no-repeat center center/cover;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero h1 span {
+            color: var(--accent-color);
+        }
+
+        /* 4. BOTÓN INTERACTIVO ESTILO END SPECIESISM */
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: var(--text-color);
+            border: 3px solid var(--accent-color);
+            background: transparent;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .cta-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* Segunda Sección (Contenido) */
+        .content-section {
+            background-color: #0a0a0a;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .content-section h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: #111;
+            padding: 2.5rem;
+            border: 1px solid #222;
+            transition: border-color 0.3s;
+            text-align: left;
+        }
+
+        .card:hover {
+            border-color: var(--accent-color);
+        }
+
+        .card h3 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsivo básico */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .content-section h2 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SECCIÓN HERO -->
+    <section class="hero">
+        <h1>Deja tu<br><span>Huella</span> en el Mundo</h1>
+        <a href="#saber-mas" class="cta-btn">Explorar Experiencia</a>
+    </section>
+
+    <!-- SECCIÓN DE CONTENIDO -->
+    <section id="saber-mas" class="content-section">
+        <h2>Rompe las Reglas</h2>
+        <p style="font-size: 1.2rem; color: #888; max-width: 600px;">Diseño brutalista, tipografía masiva y contrastes extremos para capturar la atención de inmediato.</p>
+        
+        <div class="grid-container">
+            <div class="card">
+                <h3>01. Impacto</h3>
+                <p style="font-family: sans-serif; color: #ccc; line-height: 1.6;">Colores saturados sobre fondos oscuros para que el mensaje resalte.</p>
+            </div>
+            <div class="card">
+                <h3>02. Fluidez</h3>
+                <p style="font-family: sans-serif; color: #ccc; line-height: 1.6;">Transiciones suaves e interacciones que reaccionan al usuario.</p>
+            </div>
+            <div class="card">
+                <h3>03. Identidad</h3>
+                <p style="font-family: sans-serif; color: #ccc; line-height: 1.6;">Tipografías imponentes que eliminan la necesidad de elementos decorativos extra.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
